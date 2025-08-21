@@ -1,0 +1,37 @@
+{
+  "title": "Sample Quiz",
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "Capital of France?",
+      "options": [
+        "Berlin",
+        "Paris",
+        "Rome",
+        "Madrid"
+      ],
+      "answer": 1,
+      "time": 20
+    },
+    {
+      "type": "text",
+      "question": "Who developed relativity?",
+      "answers": [
+        "Einstein",
+        "Albert Einstein"
+      ],
+      "time": 20
+    },
+    {
+      "type": "mcq",
+      "question": "2 + 2 = ?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "22"
+      ],
+      "answer": 1
+    }
+  ]
+}

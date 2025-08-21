@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz Night • Host</title>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Host Console</h1>
+      <a class="badge" href="/">Switch Role</a>
+    </div>
+    <div id="setup" class="panel stack">
+      <div class="row">
+        <button id="createRoom" class="btn">Create Room</button>
+        <div id="roomInfo" class="badge" style="display:none"></div>
+      </div>
+      <div class="stack">
+        <label class="small">Quiz JSON file</label>
+        <input id="quizFile" class="input" type="file" accept=".json" />
+      </div>
+      <div class="row">
+        <button id="loadQuiz" class="btn secondary">Load Quiz</button>
+        <button id="startQuiz" class="btn" disabled>Start Quiz</button>
+      </div>
+      <p class="small dim">Players join: <code class="inline">http://&lt;your-ip&gt;:3000/player</code>, then enter your room code.</p>
+    </div>
+
+    <div id="lobby" class="panel" style="display:none">
+      <div class="row">
+        <div class="badge">Room: <span id="roomCode"></span></div>
+        <div class="badge">Quiz: <span id="quizTitle">—</span></div>
+        <div class="badge">Players: <span id="playerCount">0</span></div>
+      </div>
+      <hr/>
+      <ul id="playerList" class="list"></ul>
+    </div>
+
+    <div id="question" class="panel" style="display:none">
+      <div class="row">
+        <div class="badge">Q<span id="qIndex">1</span></div>
+        <div class="badge" id="timerBadge" style="display:none">⏱ <span id="timer"></span>s</div>
+        <div class="badge">Answers: <span id="answerCount">0</span></div>
+      </div>
+      <h2 id="qText"></h2>
+      <div id="qOptions"></div>
+      <div class="row">
+        <button id="endQuestion" class="btn secondary">End Question</button>
+        <button id="nextQuestion" class="btn">Next Question</button>
+      </div>
+      <div id="hostAnswers" class="small dim"></div>
+    </div>
+
+    <div id="summary" class="panel" style="display:none">
+      <h2>Leaderboard</h2>
+      <div class="leaderboard" id="leaderboard"></div>
+      <button id="restart" class="btn secondary">Restart (same room)</button>
+    </div>
+  </div>
+
+  <script src="/host.js"></script>
+</body>
+</html>
